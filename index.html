@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Geocore City Data Visualizer</title>
+    <link rel="icon" type="image/png" href="assets/GeocoreLogo.png" />
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <!-- ── Header ── -->
+    <div id="header">
+      <img id="logo" src="assets/GeocoreLogo.png" alt="Geocore logo" />
+      <h1>Geocore City Data Browser</h1>
+
+      <div id="search-wrap">
+        <span id="search-icon">⌕</span>
+        <input
+          type="text"
+          id="search-input"
+          placeholder="Search city name…"
+          autocomplete="off"
+          spellcheck="false"
+        />
+        <div id="search-results"></div>
+      </div>
+
+      <button id="load-btn">Load CSV</button>
+      <input type="file" id="file-input" accept=".csv" />
+      <span id="stats">No data loaded</span>
+    </div>
+
+    <!-- ── Map + panel ── -->
+    <div id="main">
+      <div id="map">
+        <div id="welcome">
+          <img src="assets/GeocoreLogo.png" alt="Geocore logo" />
+          <h2>Geocore City Data Visualizer</h2>
+          <p>
+            Auto-loading <code>worldcities.csv</code>…<br />Or click
+            <strong>Load CSV</strong> to pick a file.
+          </p>
+        </div>
+      </div>
+      <div id="info-panel">
+        <div id="info-inner">
+          <div id="info-header">
+            <div id="info-city-name"></div>
+            <span id="info-close" title="Close">×</span>
+          </div>
+          <div id="info-content"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ── Loading overlay ── -->
+    <div id="loading-overlay" class="hidden">
+      <div id="loading-text">Preparing…</div>
+      <div id="loading-bar-bg"><div id="loading-bar"></div></div>
+    </div>
+
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.4.1/papaparse.min.js"></script>
+    <script src="app.js"></script>
+  </body>
+</html>
