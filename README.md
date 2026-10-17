@@ -13,6 +13,7 @@
 [![GitHub](https://img.shields.io/badge/GitHub-AnahatM-181717?style=flat-square&logo=github&logoColor=white)](https://github.com/AnahatM)
 
 [![Play Geocore](https://img.shields.io/badge/Play-Geocore.fun-60a5fa?style=for-the-badge&logo=googlechrome&logoColor=white)](https://geocore.fun)
+[![Open the visualizer](https://img.shields.io/badge/Open-cities.geocore.fun-34d399?style=for-the-badge&logo=leaflet&logoColor=white)](https://cities.geocore.fun)
 [![Geocore Org](https://img.shields.io/badge/GitHub_Org-Geocore--fun-181717?style=for-the-badge&logo=github&logoColor=white)](https://github.com/Geocore-fun)
 
 </div>
@@ -54,6 +55,7 @@ The CSV needs these columns: `city, city_ascii, lat, lng, country, iso2, iso3, a
 
 ## Links
 
+- 🗺️ The visualizer: [cities.geocore.fun](https://cities.geocore.fun) (a static Vercel project; it deploys on every push to `main`)
 - 🎮 Play the game: [Geocore.fun](https://geocore.fun)
 - 🏢 GitHub Organization: [Geocore-fun](https://github.com/Geocore-fun)
 - 👤 Developer: [Anahat Mudgal](https://anahatmudgal.com) · [@AnahatM](https://github.com/AnahatM)
