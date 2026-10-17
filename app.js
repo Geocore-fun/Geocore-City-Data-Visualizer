@@ -21,7 +21,7 @@
     "https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png",
     {
       attribution:
-        '© <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors © <a href="https://carto.com/">CARTO</a>',
+        '© <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors © <a href="https://carto.com/">CARTO</a> · City data: <a href="https://simplemaps.com/data/world-cities">SimpleMaps World Cities</a> (CC BY 4.0)',
       maxZoom: 19,
       subdomains: "abcd",
     },
