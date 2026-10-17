@@ -150,6 +150,11 @@ body {
   flex: 1;
 }
 
+/* The ocean behind our own country outlines (no tile service). */
+#map.leaflet-container {
+  background: #0a1220;
+}
+
 /* ── Info panel ── */
 #info-panel {
   width: 0;

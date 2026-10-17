@@ -32,6 +32,7 @@ The **Geocore City Data Visualizer** is a single-page tool for exploring the wor
 - **Instant search** — type a city name to jump straight to it, with start-of-name matches ranked first.
 - **City detail panel** — click any point to see country, ISO2/ISO3 codes, admin region, capital status, population, coordinates, and dataset ID.
 - **Drag-and-drop your own data** — auto-loads `worldcities.csv`, or click **Load CSV** to point it at any compatible file.
+- **Our own base map** — Natural Earth country outlines (public domain, `data/world.topo.json`, the geometry the Geocore web games use), so no third-party tile service is involved.
 - **Fast canvas rendering** — points are drawn in batches on a Leaflet canvas layer so even 47K markers stay smooth.
 
 ## How to Use

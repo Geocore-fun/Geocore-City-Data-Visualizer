@@ -13,19 +13,40 @@
     center: [20, 0],
     zoom: 2,
     minZoom: 2,
+    maxZoom: 12,
     worldCopyJump: true,
     renderer: canvasRenderer,
   });
 
-  L.tileLayer(
-    "https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png",
-    {
-      attribution:
-        '© <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors © <a href="https://carto.com/">CARTO</a> · City data: <a href="https://simplemaps.com/data/world-cities">SimpleMaps World Cities</a> (CC BY 4.0)',
-      maxZoom: 19,
-      subdomains: "abcd",
-    },
-  ).addTo(map);
+  // The base map is our own: Natural Earth country outlines (public domain), the same geometry the Geocore web games
+  // use, drawn on a dark ocean. No third-party tile service, so no usage terms or request limits to respect.
+  map.attributionControl.addAttribution(
+    'Countries: <a href="https://www.naturalearthdata.com/">Natural Earth</a> · City data: <a href="https://simplemaps.com/data/world-cities">SimpleMaps World Cities</a> (CC BY 4.0)',
+  );
+  const countryPane = map.createPane("countries");
+  countryPane.style.zIndex = 300; // under the city points (overlayPane, 400)
+  fetch("data/world.topo.json")
+    .then((response) => {
+      if (!response.ok) throw new Error(`world outlines: HTTP ${response.status}`);
+      return response.json();
+    })
+    .then((topology) => {
+      const countries = topojson.feature(topology, topology.objects.countries);
+      L.geoJSON(countries, {
+        pane: "countries",
+        interactive: false,
+        style: {
+          color: "#2b3d5c",
+          weight: 0.8,
+          fillColor: "#16233a",
+          fillOpacity: 1,
+        },
+      }).addTo(map);
+    })
+    .catch((error) => {
+      // The cities still plot without the outlines; say why the land is missing.
+      console.warn("Could not load the country outlines.", error);
+    });
 
   // ── State ─────────────────────────────────────────────────────────────────
   let allCities = []; // parsed CSV rows
